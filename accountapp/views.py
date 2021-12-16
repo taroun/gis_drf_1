@@ -40,7 +40,7 @@ class AccountCreateView(CreateView):
 class AccountDetailView(DetailView):
     model = User
     context_object_name = 'target_user'
-    template_name = 'accountapp/derail.html'
+    template_name = 'accountapp/detail.html'
 
 
 has_ownership = [account_ownership_required, login_required]
