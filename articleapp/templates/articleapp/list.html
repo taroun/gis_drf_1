@@ -5,8 +5,7 @@
 
     <style>
         .container div {
-            width: 280px;
-            height: 500px;
+            width: 180px;
             background-color: antiquewhite;
             display: flex;
             justify-content: center;
@@ -20,20 +19,16 @@
         .container .item11 { height: 400px; }
     </style>
 
-    <div class="container">
-        <div class="item1">1</div>
-        <div class="item2">2</div>
-        <div class="item3">3</div>
-        <div class="item4">4</div>
-        <div class="item5">5</div>
-        <div class="item6">6</div>
-        <div class="item7">7</div>
-        <div class="item8">8</div>
-        <div class="item9">9</div>
-        <div class="item10">10</div>
-        <div class="item11">11</div>
-        <div class="item12">12</div>
-        <div class="item13">13</div>
+    <div class="container" style="max-width: 600px; margin: auto; padding:0;">
+        {% for article in article_list %}
+            <div>
+                <a href="{% url 'articleapp:detail' pk=article.pk %}">
+                <img style="width: 100%; border-radius: 1rem;"
+                     src="{{ article.image.url }}"
+                     alt="">
+                </a>
+            </div>
+        {% endfor %}
     </div>
 
     <script src="{% static 'articleapp/js/magic_grid.js' %}"></script>
@@ -41,7 +36,7 @@
         let magicGrid = new MagicGrid({
             container: '.container',
             animate: true,
-            gutter: 30,
+            gutter: 20,
             static: true,
             useMin: true
         });
